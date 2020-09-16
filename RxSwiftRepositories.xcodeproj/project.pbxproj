@@ -100,9 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				7E92023C2511BE320009A15D /* AppDelegate.swift */,
+				7E92026E2511BEE70009A15D /* Model */,
+				7E92026D2511BEE10009A15D /* View */,
+				7E92026C2511BED20009A15D /* ViewModel */,
 				7E92023E2511BE320009A15D /* SceneDelegate.swift */,
-				7E9202402511BE320009A15D /* ViewController.swift */,
-				7E9202422511BE320009A15D /* Main.storyboard */,
 				7E9202452511BE330009A15D /* Assets.xcassets */,
 				7E9202472511BE330009A15D /* LaunchScreen.storyboard */,
 				7E92024A2511BE330009A15D /* Info.plist */,
@@ -126,6 +127,45 @@
 				7E9202602511BE330009A15D /* Info.plist */,
 			);
 			path = RxSwiftRepositoriesUITests;
+			sourceTree = "<group>";
+		};
+		7E92026C2511BED20009A15D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7E92026D2511BEE10009A15D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E9202702511BF8A0009A15D /* Home */,
+				7E92026F2511BF770009A15D /* RepositoryList */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E92026E2511BEE70009A15D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E92026F2511BF770009A15D /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		7E9202702511BF8A0009A15D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7E9202402511BE320009A15D /* ViewController.swift */,
+				7E9202422511BE320009A15D /* Main.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
