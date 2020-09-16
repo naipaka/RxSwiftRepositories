@@ -10,11 +10,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Injectable {
+    typealias Dependency = Void
+
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var showListViewButton: UIButton!
 
     private let disposeBag = DisposeBag()
+
+    // MARK: - Injectable
+    required init(with dependency: Void) {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - lifecycle
     override func viewDidLoad() {
@@ -25,14 +36,14 @@ class HomeViewController: UIViewController {
     // MARK: - private
     private func onViewDidLoad() {
         searchTextField.rx.text
-            .subscribe(onNext: { text in
-                print(text!)
+            .subscribe(onNext: { [weak self] text in
+                self?.showListViewButton.isEnabled = !(text?.isEmpty ?? true)
             }
         ).disposed(by: disposeBag)
 
         showListViewButton.rx.tap
-            .subscribe(onNext: { _ in
-                print("did tap show list view button")
+            .subscribe(onNext: { [weak self] _ in
+                print(self?.searchTextField.text ?? "")
             }
         ).disposed(by: disposeBag)
     }

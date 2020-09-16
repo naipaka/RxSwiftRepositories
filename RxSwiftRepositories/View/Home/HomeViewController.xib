@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="RxSwiftRepositories" customModuleProvider="target">
+            <connections>
+                <outlet property="searchTextField" destination="Fgf-oF-E4V" id="T3H-Xf-uKR"/>
+                <outlet property="showListViewButton" destination="iml-eh-Atl" id="2Gb-dg-8XI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="B0p-Rf-ajq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iml-eh-Atl">
+                    <rect key="frame" x="184" y="433" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-oF-E4V">
+                    <rect key="frame" x="84" y="351" width="234" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uok-rK-ain">
+                    <rect key="frame" x="56" y="359" width="20" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="6vt-yt-kZJ"/>
+                        <constraint firstAttribute="height" constant="20" id="cAQ-b7-Zhd"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="iml-eh-Atl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3iR-iv-EmA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fgf-oF-E4V" secondAttribute="trailing" constant="96" id="BVY-TW-dvW"/>
+                <constraint firstItem="uok-rK-ain" firstAttribute="centerY" secondItem="Fgf-oF-E4V" secondAttribute="centerY" id="Jjq-rn-zHw"/>
+                <constraint firstItem="uok-rK-ain" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="56" id="OJG-4i-iui"/>
+                <constraint firstItem="Fgf-oF-E4V" firstAttribute="leading" secondItem="uok-rK-ain" secondAttribute="trailing" constant="8" id="c7n-39-A6x"/>
+                <constraint firstItem="iml-eh-Atl" firstAttribute="top" secondItem="Fgf-oF-E4V" secondAttribute="bottom" constant="48" id="qrR-8G-fou"/>
+                <constraint firstItem="iml-eh-Atl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zmA-Ka-S7H"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+    </resources>
+</document>
