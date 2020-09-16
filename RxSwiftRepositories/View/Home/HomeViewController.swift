@@ -7,14 +7,33 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var showListViewButton: UIButton!
 
+    private let disposeBag = DisposeBag()
+
+    // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        onViewDidLoad()
+    }
+
+    // MARK: - private
+    private func onViewDidLoad() {
+        searchTextField.rx.text
+            .subscribe(onNext: { text in
+                print(text!)
+            }
+        ).disposed(by: disposeBag)
+
+        showListViewButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("did tap show list view button")
+            }
+        ).disposed(by: disposeBag)
     }
 }
-
