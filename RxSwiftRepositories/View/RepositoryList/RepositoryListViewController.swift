@@ -59,14 +59,13 @@ class RepositoryListViewController: UIViewController, Injectable {
             }
             .disposed(by: disposeBag)
 
-        // TODO: DetailViewを実装後に実装
-//        repositoryListTableView.rx.modelSelected(GitHubRepository.self)
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] in
-//                let vc = DetailViewController.make(with: DetailViewModel(repository: $0))
-//                self?.navigationController?.pushViewController(vc, animated: true)
-//            })
-//            .disposed(by: disposeBag)
+        repositoryListTableView.rx.modelSelected(GitHubRepository.self)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                let vc = RepositoryDetailViewController(with: RepositoryDetailViewModel(with: $0))
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
 
         viewModel.output.isLoading
             .observeOn(MainScheduler.instance)

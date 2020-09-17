@@ -6,6 +6,7 @@ target 'RxSwiftRepositories' do
   pod 'RxCocoa', '~> 5'
   pod 'Action'
   pod 'APIKit', '~> 5.0'
+  pod 'RxWebKit'
 
   target 'RxSwiftRepositoriesTests' do
     inherit! :search_paths
