@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 
 class HomeViewController: UIViewController, Injectable {
-    typealias Dependency = Void
+    typealias Dependency = HomeViewModel
+    private let viewModel: HomeViewModel
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var showListViewButton: UIButton!
@@ -19,7 +20,8 @@ class HomeViewController: UIViewController, Injectable {
     private let disposeBag = DisposeBag()
 
     // MARK: - Injectable
-    required init(with dependency: Void) {
+    required init(with dependency: Dependency) {
+        viewModel = dependency
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -35,9 +37,19 @@ class HomeViewController: UIViewController, Injectable {
 
     // MARK: - private
     private func onViewDidLoad() {
+        viewModel.output.showListViewButtonTitle
+            .observeOn(MainScheduler.instance)
+            .bind(to: showListViewButton.rx.title())
+            .disposed(by: disposeBag)
+
+        viewModel.output.isEnabledShowListViewButton
+            .observeOn(MainScheduler.instance)
+            .bind(to: showListViewButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
         searchTextField.rx.text
             .subscribe(onNext: { [weak self] text in
-                self?.showListViewButton.isEnabled = !(text?.isEmpty ?? true)
+                self?.viewModel.input.inputTextTrigger.onNext(text ?? "")
             }
         ).disposed(by: disposeBag)
 

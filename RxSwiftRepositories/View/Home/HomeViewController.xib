@@ -25,33 +25,22 @@
                     <state key="normal" title="Button"/>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-oF-E4V">
-                    <rect key="frame" x="84" y="351" width="234" height="34"/>
+                    <rect key="frame" x="48" y="351" width="318" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uok-rK-ain">
-                    <rect key="frame" x="56" y="359" width="20" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="6vt-yt-kZJ"/>
-                        <constraint firstAttribute="height" constant="20" id="cAQ-b7-Zhd"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="iml-eh-Atl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3iR-iv-EmA"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fgf-oF-E4V" secondAttribute="trailing" constant="96" id="BVY-TW-dvW"/>
-                <constraint firstItem="uok-rK-ain" firstAttribute="centerY" secondItem="Fgf-oF-E4V" secondAttribute="centerY" id="Jjq-rn-zHw"/>
-                <constraint firstItem="uok-rK-ain" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="56" id="OJG-4i-iui"/>
-                <constraint firstItem="Fgf-oF-E4V" firstAttribute="leading" secondItem="uok-rK-ain" secondAttribute="trailing" constant="8" id="c7n-39-A6x"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fgf-oF-E4V" secondAttribute="trailing" constant="48" id="Bmo-TC-JRb"/>
+                <constraint firstItem="Fgf-oF-E4V" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="48" id="aoU-EE-wdY"/>
+                <constraint firstItem="Fgf-oF-E4V" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cn6-Ks-YGa"/>
                 <constraint firstItem="iml-eh-Atl" firstAttribute="top" secondItem="Fgf-oF-E4V" secondAttribute="bottom" constant="48" id="qrR-8G-fou"/>
                 <constraint firstItem="iml-eh-Atl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zmA-Ka-S7H"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </view>
     </objects>
-    <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-    </resources>
 </document>
