@@ -55,7 +55,9 @@ class HomeViewController: UIViewController, Injectable {
 
         showListViewButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                print(self?.searchTextField.text ?? "")
+                let params = GitHubRequestParam(language: self?.searchTextField.text ?? "")
+                let vc = RepositoryListViewController.init(with: RepositoryListViewModel(with: params))
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
         ).disposed(by: disposeBag)
     }
