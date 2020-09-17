@@ -42,10 +42,11 @@ class HomeViewController: UIViewController, Injectable {
             .bind(to: showListViewButton.rx.title())
             .disposed(by: disposeBag)
 
-        viewModel.output.isEnabledShowListViewButton
+        viewModel.output.isEmpty
             .observeOn(MainScheduler.instance)
+            .map { !$0 }
             .bind(to: showListViewButton.rx.isEnabled)
-            .disposed(by: disposeBag)
+        .disposed(by: disposeBag)
 
         searchTextField.rx.text
             .subscribe(onNext: { [weak self] text in

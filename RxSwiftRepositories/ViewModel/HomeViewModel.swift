@@ -16,7 +16,7 @@ protocol HomeViewModelInput {
 
 protocol HomeViewModelOutput {
     var showListViewButtonTitle: Observable<String> { get }
-    var isEnabledShowListViewButton: Observable<Bool> { get }
+    var isEmpty: Observable<Bool> { get }
 }
 
 protocol HomeViewModelType {
@@ -35,21 +35,19 @@ final class HomeViewModel: Injectable, HomeViewModelType, HomeViewModelInput, Ho
 
     // MARK: - output
     var showListViewButtonTitle: Observable<String>
-    var isEnabledShowListViewButton: Observable<Bool>
+    var isEmpty: Observable<Bool>
+    private let isEmptySubject = PublishSubject<Bool>()
 
     private let disposeBag = DisposeBag()
 
     // MARK: - injectable
     init(with dependency: Void) {
         self.showListViewButtonTitle = Observable.just("Show Repositories")
-        // TODO: falseにする
-        self.isEnabledShowListViewButton = Observable.just(true)
+        self.isEmpty = isEmptySubject
 
-        inputTextTrigger.asObserver()
-            .subscribe(onNext: { [weak self] text in
-                // TODO: 何故か効かない
-                self?.isEnabledShowListViewButton = Observable.just(!text.isEmpty)
-            }
-        ).disposed(by: disposeBag)
+        inputTextTrigger
+            .map { $0.isEmpty }
+            .bind(to: isEmptySubject)
+            .disposed(by: disposeBag)
     }
 }
